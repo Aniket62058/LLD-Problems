@@ -53,20 +53,26 @@ public class TicTakToeGame {
         Collections.shuffle(players);
 
         Game game = gameController.createGame(dimension, players);
+        int playerIndex = 0;
 
         while (game.getGameState().equals(GameState.IN_PROGRESS)){
             System.out.println("Current board status");
             gameController.displayBoard(game);
+            System.out.println("It's " + players.get(playerIndex).getName() + "'s turn!!");
+            Move movePlayed = gameController.executeMove(game, players.get(playerIndex));
+            Player winner = gameController.checkWinner(game, movePlayed);
             // TODO : undo
-            gameController.executeMove(game);
             // TODO : write logic for giving each player option to play
+            if(winner != null){
+                gameController.displayBoard(game);
+                System.out.println("Game has ended, result was : ");
+                System.out.println("Winner is : " + winner.getName());
+                break;
+            }
+            playerIndex++;
+            playerIndex = playerIndex % players.size();
         }
 
-        System.out.println("Game has ended, result was : ");
-        if(gameController.getGameState(game).equals(GameState.DRAW)){
-            System.out.println("GAME WAS A DRAW");
-        } else{
-            System.out.println("Game is won by : " + gameController.getWinner(game));
-        }
+
     }
 }

@@ -62,7 +62,7 @@ public class OrderOneWinningStrategy implements WinningStrategy{
 
         if(symbolsAdded == (dimension*dimension)){
             board.printBoard();
-            throw new GameDrawnException("Game is drawn as cells are cells are full");
+//            throw new GameDrawnException("Game is drawn as cells are cells are full");
         }
         return null;
     }
@@ -90,8 +90,7 @@ public class OrderOneWinningStrategy implements WinningStrategy{
                     bottomLeftDiagonalSymbolCount.get(symbol) + 1
             );
             // Winning by same symbol across bottom left diagonal
-            if(bottomLeftDiagonalSymbolCount.get(symbol) == dimension)
-                return true;
+            return bottomLeftDiagonalSymbolCount.get(symbol) == dimension;
         }
         return false;
     }
@@ -106,8 +105,7 @@ public class OrderOneWinningStrategy implements WinningStrategy{
                     cornersSymbolCount.get(symbol) + 1
             );
             // Winning by same symbol across all corners
-            if(cornersSymbolCount.get(symbol) == dimension)
-                return true;
+            return cornersSymbolCount.get(symbol) == dimension;
         }
         return false;
     }
@@ -121,9 +119,7 @@ public class OrderOneWinningStrategy implements WinningStrategy{
                 rowSymbolCount.get(row).get(symbol) + 1
         );
         // Winning by same symbol across a column
-        if(colSymbolCount.get(row).get(symbol) == dimension)
-            return true;
-        return false;
+        return rowSymbolCount.get(row).get(symbol) == dimension;
     }
 
     private boolean checkForColumnWins(int row, int col, char symbol){
@@ -135,8 +131,6 @@ public class OrderOneWinningStrategy implements WinningStrategy{
                 colSymbolCount.get(col).get(symbol) + 1
         );
         // Winning by same symbol across a column
-        if(colSymbolCount.get(col).get(symbol) == dimension)
-            return true;
-        return false;
+        return colSymbolCount.get(col).get(symbol) == dimension;
     }
 }
