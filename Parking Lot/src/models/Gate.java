@@ -3,7 +3,8 @@ package models;
 public class Gate extends BaseModel{
     private GateType gateType;
     private int gateNumber;
-    private Operator operator;
+//    private Operator operator;
+    private String operator;
     private Status status;
     private int floorNumber;
 
@@ -31,11 +32,11 @@ public class Gate extends BaseModel{
         this.gateType = gateType;
     }
 
-    public Operator getOperator() {
+    public String getOperator() {
         return operator;
     }
 
-    public void setOperator(Operator operator) {
+    public void setOperator(String operator) {
         this.operator = operator;
     }
 
