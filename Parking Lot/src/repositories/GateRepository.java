@@ -23,6 +23,5 @@ public class GateRepository {
 
     public void put(Gate gate){
         GateMap.put(gate.getId(), gate);
-        System.out.println("Parking floor has been added successfully");
     }
 }

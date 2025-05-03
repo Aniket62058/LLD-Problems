@@ -9,10 +9,11 @@ public class Vehicle extends BaseModel {
     public Vehicle() {
     }
 
-    public Vehicle(String number, String color, VehicleType vehicleType) {
+    public Vehicle(String number, String color, VehicleType vehicleType, String vehicleMake) {
         this.number = number;
         this.color = color;
         this.vehicleType = vehicleType;
+        this.make = vehicleMake;
     }
 
     public VehicleType getVehicleType() {
@@ -45,5 +46,15 @@ public class Vehicle extends BaseModel {
 
     public void setMake(String make) {
         this.make = make;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "number='" + number + '\'' +
+                ", color='" + color + '\'' +
+                ", make='" + make + '\'' +
+                ", vehicleType=" + vehicleType +
+                '}';
     }
 }

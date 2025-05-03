@@ -27,6 +27,7 @@ public class TicketController {
                     issueTicketRequestDTO.getVehicleType(),
                     issueTicketRequestDTO.getVehicleNumber(),
                     issueTicketRequestDTO.getVehicleColor(),
+                    issueTicketRequestDTO.getVehicleMake(),
                     issueTicketRequestDTO.getGateId());
             issueTicketResponseDTO.setTicket(ticket);
             issueTicketResponseDTO.setResponseStatus(ResponseStatus.SUCCESS);

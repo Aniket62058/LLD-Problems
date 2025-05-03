@@ -23,6 +23,5 @@ public class TicketRepository {
 
     public void put(Ticket Ticket){
         ticketMap.put(Ticket.getId(), Ticket);
-        System.out.println("Parking floor has been added successfully");
     }
 }
