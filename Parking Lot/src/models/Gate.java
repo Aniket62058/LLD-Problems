@@ -7,6 +7,15 @@ public class Gate extends BaseModel{
     private String operator;
     private Status status;
     private int floorNumber;
+    private int parkingLotId;
+
+    public int getParkingLotId() {
+        return parkingLotId;
+    }
+
+    public void setParkingLotId(int parkingLotId) {
+        this.parkingLotId = parkingLotId;
+    }
 
     public int getGateNumber() {
         return gateNumber;

@@ -1,5 +1,6 @@
 package repositories;
 
+import exceptions.ParkingFloorNotFoundException;
 import models.ParkingFloor;
 
 import java.util.HashMap;
@@ -8,14 +9,14 @@ import java.util.Map;
 public class ParkingFloorRepository {
     Map<Integer, ParkingFloor> ParkingFloorMap;
 
-    public ParkingFloorRepository(Map<Integer, ParkingFloor> ParkingFloorMap) {
+    public ParkingFloorRepository() {
         this.ParkingFloorMap = new HashMap<>();
     }
 
     public ParkingFloor get(int parkingFloorId){
         ParkingFloor ParkingFloor = ParkingFloorMap.get(parkingFloorId);
         if(ParkingFloor == null){
-            // TODO : throw exception
+            throw new ParkingFloorNotFoundException("Parking floor not found for : " + parkingFloorId);
         }
         return ParkingFloor;
     }
